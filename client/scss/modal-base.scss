@@ -1,0 +1,104 @@
+/**
+  * add this class to the body when the modal is open
+  * it will prevent the body from scrolling when the end of the scroll for the modal is reached
+  */
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow: auto;
+  transition: all 500ms;
+  visibility: visible;
+  z-index: 100;
+
+  /* when it's hidden */
+  &:not(.is-open) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* so the user can't click it as it's fading away */
+
+    .modal__box {
+      transform: translateY(18px);
+    }
+  }
+}
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: inherit;
+}
+
+.modal__box-holder {
+  position: relative; /* so the overlay knows how big it should be */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 35px;
+  transition: inherit;
+}
+
+.modal__box {
+  position: relative;
+
+  /* vertically center the box */
+  margin-top: auto;
+  margin-bottom: auto;
+
+  max-width: 100%;
+
+  color: #333;
+
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  transform: translateY(0);
+  transition: inherit;
+}
+
+.modal__title {
+  position: relative;
+  height: 40px;
+
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.modal__content {
+  padding: 0 20px 20px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 12px;
+  line-height: 0;
+
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  svg {
+    fill: #333;
+  }
+
+  &:hover svg {
+    fill: #900;
+  }
+}

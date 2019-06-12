@@ -1,0 +1,13 @@
+.modal {
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal__title {
+  display: none;
+}
+
+.modal__box {
+  background-color: transparent;
+  border: 0;
+}
